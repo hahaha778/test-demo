@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>折线图</title>
+    <script src="echarts.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 600px;height: 400px;"></div>
+    <script type="text/javascript">
+        var mychart = echarts.init(document.getElementById("main"));
+
+        var option = {
+            bacxkgroundColor: "#eee",
+            title: {
+                text: "某都市的人流统计",
+                textStyle: {
+                    color: 'red',
+                },
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+                xAxis: [{
+                    type: "category",
+                    data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+                }],
+                yAxis: [{
+                    type: 'value'
+                }],
+                series: [{
+                    name: '人流量',
+                    type: 'line',
+                    stack:'总量',
+                    data: [80, 125, 160, 140, 200, 245, 155],
+                    smooth: true
+                },
+                {
+                    name: '手机',
+                    type: 'line',
+                    stack:'总量',
+                    data: [434, 345, 456, 222, 333, 444, 432],
+                    smooth: true
+                },
+                {
+                    name: '冰箱',
+                    type: 'line',
+                    stack:'总量',
+                    data: [420, 282, 391, 344, 390, 530, 410],
+                    smooth: true
+                },
+
+                {
+                    name: '空调',
+                    type: 'line',
+                    stack:'总量',
+                    data: [435, 332, 331, 334, 390, 320, 340],
+                    smooth: true
+                },
+
+                {
+                    name: '电视',
+                    type: 'line',
+                    stack:'总量',
+                    data: [420, 222, 333, 442, 230, 430, 430],
+                    smooth: true,
+                    areaStyle:{}
+                },
+
+                {
+                    name: '其他',
+                    type: 'line',
+                    stack:'总量',
+                    data: [330, 442, 432, 555, 456, 666, 877],
+                    smooth: true,
+                    areaStyle:{} //设置面积覆盖面积图
+                },
+                ],
+                toolbox:{
+                    show:true,
+                    feature:{
+                        mark:{show:true},
+                        dataView:{show:true,readOnly:false},
+                        magicType:{show:true,type:['line','bar']},
+                        restore:{show:true},
+                        saveAsImage:{shwo:true}
+                    }},
+
+            };
+            mychart.setOption(option);
+    </script>
+
+</body>
+
+</html>

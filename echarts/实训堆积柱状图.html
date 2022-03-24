@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>条形图</title>
+    <script src="echarts.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            ooltip: {
+                trigger: 'axis',
+            },
+            title: {
+                text: '会员入会年龄分布情况'
+            },
+            legend: {},
+            xAxis: {
+                type: 'category',
+                data: ['20~29岁', '30~39岁', '40~49岁']
+            },
+            yAxis:
+            {   
+            },
+            series: [
+                {
+                    name: '男',
+                    type: 'bar',
+                    stack:'人数',
+                    data: [4, 0, 1]
+                },
+                {
+                    name: '女',
+                    type: 'bar',
+                    stack:'人数',
+                    data: [5, 3, 0]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
